@@ -3,74 +3,97 @@ import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaView, Button, StyleSheet, Text, TextInput} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+function IconSearch() {
+  return <Icon name="search" size={15} color="white" />;
+}
+
+function IconMic() {
+  return <Icon name="microphone" size={15} color="white" />;
+}
 
 const InputSearch = () => {
   const [value, onChangeText] = useState('What do you want to eat?');
   return (
     <SafeAreaView style={styles.areaInput}>
+      <IconSearch />
       <TextInput
         style={styles.whiteText}
         onChangeText={(text) => onChangeText(text)}
         value={value}
       />
-      <Text
-        style={{
-          color: 'white',
-        }}>
-        {value}
-      </Text>
+      <IconMic />
     </SafeAreaView>
   );
 };
 
 function HomeScreen({navigation}) {
   return (
-    <SafeAreaView style={styles.container}>
-      <InputSearch />
-      <Recipe />
-      <Button
-        title="Go to the card"
-        onPress={() => navigation.navigate('Card')}
-      />
-      <Button
-        title="Go to the recipe"
-        onPress={() => navigation.navigate('Recipe')}
-      />
-      <Text style={styles.subtitle}>Home Screen</Text>
+    <SafeAreaView style={styles.containerHome}>
+      <InputSearch style={{borderWidth: 2}} />
+      <Recipe style={{borderWidth: 2}} />
+      <Icon.Button
+        style={styles.buttonRecipe}
+        name="heart"
+        size={20}
+        color="whitesmoke"
+        onPress={() => navigation.navigate('CardRecipe')}>
+        See recipe
+      </Icon.Button>
     </SafeAreaView>
   );
 }
 
-function Recipe({navigation}) {
+function Divider() {
+  return <Text style={styles.divider}>Trending </Text>;
+}
+
+const Recipe = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.containerRecipe}>
+      <Divider />
       <Text style={styles.title}>First recipe</Text>
       <Text style={styles.subtitle}>I am a description</Text>
     </SafeAreaView>
   );
-}
+};
 
-function Card({navigation}) {
+const CardRecipe = ({navigation}) => {
+  function IconBack() {
+    return (
+      <Icon
+        onPress={() => navigation.goBack()}
+        name="angle-left"
+        size={30}
+        color="white"
+      />
+    );
+  }
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.divider}>Trending</Text>
-      <Text style={styles.title}>First card</Text>
-      <Text style={styles.subtitle}>I am a description</Text>
+      <SafeAreaView style={{flex: 1, width: '100%', borderWidth: 2}}>
+        <IconBack style={{flex: 1, alignSelf: 'flex-end'}} />
+        <Text style={styles.divider}>Trending</Text>
+        <Text style={styles.title}>First card</Text>
+        <Text style={styles.subtitle}>I am a description</Text>
+        <SafeAreaView style={{flex: 1, borderWidth: 2}}></SafeAreaView>
+      </SafeAreaView>
     </SafeAreaView>
   );
-}
+};
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer style={styles.container}>
-      <Stack.Navigator>
+      <Stack.Navigator headerMode="false">
         <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
         <Stack.Screen
           name="Recipe"
           component={Recipe}
           options={{title: 'Recipes'}}></Stack.Screen>
-        <Stack.Screen name="Card" component={Card}></Stack.Screen>
+        <Stack.Screen name="CardRecipe" component={CardRecipe}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -78,12 +101,21 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'black',
+    borderWidth: 2,
+    backgroundColor: '#282828',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     color: 'white',
   },
+  containerHome: {
+    borderWidth: 2,
+    backgroundColor: '#282828',
+    flex: 1,
+  },
+  containerRecipe: {
+    borderWidth: 2,
+    backgroundColor: '#282828',
+  },
+  containerCardRecipe: {},
   title: {
     fontSize: 20,
     color: 'white',
@@ -93,16 +125,31 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   divider: {
-    width: 200,
     alignSelf: 'flex-start',
-    color: 'aquamarine',
+    color: 'coral',
   },
   whiteText: {
+    justifyContent: 'flex-start',
     color: 'white',
-    fontSize: 20,
+    fontSize: 15,
+  },
+  buttonRecipe: {
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    height: 25,
   },
   areaInput: {
-    justifyContent: 'center',
+    borderWidth: 2,
+    width: '90%',
+    backgroundColor: '#343435',
+    marginTop: 15,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 });
