@@ -3,16 +3,27 @@ import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaView, Button, StyleSheet, Text, TextInput} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
+function ButtonSearch(props) {
+  return <Icon name="search" backgroundColor="white" size={10} />;
+}
+
+function ButtonMic(props) {
+  return <Icon name="microphone" backgroundColor="white" size={10} />;
+}
 const InputSearch = () => {
   const [value, onChangeText] = useState('What do you want to eat?');
   return (
     <SafeAreaView style={styles.areaInput}>
+      <ButtonSearch />
+
       <TextInput
         style={styles.whiteText}
         onChangeText={(text) => onChangeText(text)}
         value={value}
       />
+      <ButtonMic />
       <Text
         style={{
           color: 'white',
