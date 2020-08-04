@@ -1,157 +1,23 @@
 import 'react-native-gesture-handler';
-import React, {useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {SafeAreaView, Button, StyleSheet, Text, TextInput} from 'react-native';
+import React from 'react';
+import {
+  StyleSheet,
+} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
-function IconSearch() {
-  return <Icon name="search" size={15} color="white" />;
-}
-
-function IconMic() {
-  return <Icon name="microphone" size={15} color="white" />;
-}
-
-const InputSearch = () => {
-  const [value, onChangeText] = useState('What do you want to eat?');
-  return (
-    <SafeAreaView style={styles.areaInput}>
-      <IconSearch />
-      <TextInput
-        style={styles.whiteText}
-        onChangeText={(text) => onChangeText(text)}
-        value={value}
-      />
-      <IconMic />
-    </SafeAreaView>
-  );
-};
-
-function HomeScreen({navigation}) {
-  return (
-    <SafeAreaView style={styles.containerHome}>
-      <InputSearch style={{borderWidth: 2}} />
-      <Recipe style={{borderWidth: 2}} />
-      <Icon.Button
-        style={styles.buttonRecipe}
-        name="heart"
-        size={20}
-        color="whitesmoke"
-        onPress={() => navigation.navigate('CardRecipe')}>
-        See recipe
-      </Icon.Button>
-    </SafeAreaView>
-  );
-}
-
-function Divider() {
-  return <Text style={styles.divider}>Trending </Text>;
-}
-
-const Recipe = ({navigation}) => {
-  return (
-    <SafeAreaView style={styles.containerRecipe}>
-      <Divider />
-      <Text style={styles.title}>First recipe</Text>
-      <Text style={styles.subtitle}>I am a description</Text>
-    </SafeAreaView>
-  );
-};
-
-const CardRecipe = ({navigation}) => {
-  function IconBack() {
-    return (
-      <Icon
-        onPress={() => navigation.goBack()}
-        name="angle-left"
-        size={30}
-        color="white"
-      />
-    );
-  }
-  return (
-    <SafeAreaView style={styles.container}>
-      <SafeAreaView style={{flex: 1, width: '100%', borderWidth: 2}}>
-        <IconBack style={{flex: 1, alignSelf: 'flex-end'}} />
-        <Text style={styles.divider}>Trending</Text>
-        <Text style={styles.title}>First card</Text>
-        <Text style={styles.subtitle}>I am a description</Text>
-        <SafeAreaView style={{flex: 1, borderWidth: 2}}></SafeAreaView>
-      </SafeAreaView>
-    </SafeAreaView>
-  );
-};
-const Stack = createStackNavigator();
+import {NavigationContainer} from '@react-navigation/native';
+import HomeScreen from './src/components/HomeScreen.component';
+import Recipe from './src/components/Recipe.component';
+import CardRecipe from './src/components/CardRecipe.component';
+import Route from './src/routes/route';
+import {styles} from './src/utils/styles';
 
 const App = () => {
   return (
-    <NavigationContainer style={styles.container}>
-      <Stack.Navigator headerMode="false">
-        <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
-        <Stack.Screen
-          name="Recipe"
-          component={Recipe}
-          options={{title: 'Recipes'}}></Stack.Screen>
-        <Stack.Screen name="CardRecipe" component={CardRecipe}></Stack.Screen>
-      </Stack.Navigator>
+    <NavigationContainer>
+      <Route />
     </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    borderWidth: 2,
-    backgroundColor: '#282828',
-    flex: 1,
-    color: 'white',
-  },
-  containerHome: {
-    borderWidth: 2,
-    backgroundColor: '#282828',
-    flex: 1,
-  },
-  containerRecipe: {
-    borderWidth: 2,
-    backgroundColor: '#282828',
-  },
-  containerCardRecipe: {},
-  title: {
-    fontSize: 20,
-    color: 'white',
-  },
-  subtitle: {
-    fontSize: 12,
-    color: 'white',
-  },
-  divider: {
-    alignSelf: 'flex-start',
-    color: 'coral',
-  },
-  whiteText: {
-    justifyContent: 'flex-start',
-    color: 'white',
-    fontSize: 15,
-  },
-  buttonRecipe: {
-    backgroundColor: 'black',
-    justifyContent: 'center',
-    height: 25,
-  },
-  areaInput: {
-    borderWidth: 2,
-    width: '90%',
-    backgroundColor: '#343435',
-    marginTop: 15,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-});
 
 export default App;
