@@ -25,12 +25,12 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.white,
   },
-    
-  subtitle: {
-    fontSize: 12,
-    color: Colors.white,
+
+  recipeImageRecent: {
+    width: 130,
+    height: 150,
+    borderRadius: 5,
   },
-    
   divider: {
     alignSelf: 'flex-start',
     fontSize: 30,
@@ -51,17 +51,15 @@ export const styles = StyleSheet.create({
     
   recipeImage: {
     resizeMode: 'cover',
-    height: 100,
-    width: 100,
-    borderRadius: 10,
-    margin: 10,
+    height: 110,
+    width: 120,
+    borderRadius: 5,
+
   },
-    
   areaInput: {
     width: '90%',
     backgroundColor: Colors.backgroundSearch,
-    marginTop: 25,
-    marginBottom: 25,
+    marginVertical: 25,
     marginLeft: 'auto',
     marginRight: 'auto',
     paddingLeft: 15,
@@ -71,5 +69,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  
+  cardMargin: {
+    marginHorizontal: 5,
+  }
 });
