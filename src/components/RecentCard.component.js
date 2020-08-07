@@ -4,7 +4,7 @@ import {styles} from '../utils/styles';
 
 const recentCard = (props) => {
   return (
-    <View>
+    <View style={{marginHorizontal: 10}}>
       <TouchableOpacity>
         <Image
           style={styles.recipeImageRecent}
