@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {Colors} from './themes';
 
 export const styles = StyleSheet.create({
+  //This styles are for he homeScreen
   container: {
     borderWidth: 2,
     backgroundColor: Colors.backgroundScreen,
@@ -9,18 +10,16 @@ export const styles = StyleSheet.create({
     color: Colors.white,
   },
 
-  containerHome: {
-    borderWidth: 2,
-    backgroundColor: Colors.backgroundScreen,
-    flex: 1,
-  },
+  //This styles are for the Trending container
   containerRecipe: {
-    height: 'auto',
-    padding: 10,
+    // height: 'auto',
+    marginHorizontal: 5,
     backgroundColor: Colors.backgroundScreen,
   },
-  containerCardRecipe: {},
-    
+  containerRecent: {
+    marginTop: 30,
+  },
+  //Text's styles for the recipes  
   title: {
     fontSize: 20,
     color: Colors.white,
@@ -31,6 +30,7 @@ export const styles = StyleSheet.create({
     height: 150,
     borderRadius: 5,
   },
+  // Title's styles (Trending and Recent)
   divider: {
     alignSelf: 'flex-start',
     fontSize: 30,
@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
   },
     
   recipeImage: {
-    resizeMode: 'cover',
+    // resizeMode: 'cover',
     height: 110,
     width: 120,
     borderRadius: 5,
@@ -70,6 +70,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardMargin: {
-    marginHorizontal: 5,
+    flex: 1,
+    flexWrap: 'wrap',
+    marginHorizontal: 10,
+    marginBottom: 5,
+    // paddingHorizontal: 10,
   }
 });
