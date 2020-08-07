@@ -1,4 +1,4 @@
-export var recipesRecent = [
+export var recipesTrending = [
   {
     name: 'Napolitan Pizza',
     section: 'Recent',

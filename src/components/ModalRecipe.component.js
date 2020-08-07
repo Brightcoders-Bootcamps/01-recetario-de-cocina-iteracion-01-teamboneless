@@ -6,22 +6,16 @@ import {
   Text,
   ImageBackground,
   View,
-  ScrollView
+  ScrollView,
 } from 'react-native';
-import IconsEvilIcon   from 'react-native-vector-icons/EvilIcons';
+import IconsEvilIcon from 'react-native-vector-icons/EvilIcons';
 import {Colors} from '../utils/themes';
 import {recipesRecent} from '../data/recipesRecent';
 
 const modal = ({visible, show, hide}) => {
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={visible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-        }}>
+      <Modal animationType="slide" transparent={true} visible={visible}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <ImageBackground
@@ -61,35 +55,45 @@ const modal = ({visible, show, hide}) => {
                 <Text style={styles.recipeName}>Pizza</Text>
               </View>
             </ImageBackground>
-            <View style={{margin: 15}}> 
-              <View style={{borderWidth: 2,}}>
+            <View style={{margin: 15}}>
+              <View style={{borderWidth: 2}}>
                 <Text style={styles.servingsRecipe}>
-                  Ingredients for XX servings 
+                  Ingredients for XX servings
                 </Text>
               </View>
             </View>
-            <View style={{ display: 'flex', flexDirection: 'row', margin: 15,}}>
+            <View style={{display: 'flex', flexDirection: 'row', margin: 15}}>
               <View style={{flex: 8}}>
-                <Text style={styles.Ingredients }>{recipesRecent[0].ingredients[0].name}</Text>
+                <Text style={styles.Ingredients}>
+                  {recipesRecent[0].ingredients[0].name}
+                </Text>
               </View>
-              <View style={{flex:4 }}>                
-                  <Text style={styles.Ingredients}>{recipesRecent[0].ingredients[0].quantity}</Text>
+              <View style={{flex: 4}}>
+                <Text style={styles.Ingredients}>
+                  {recipesRecent[0].ingredients[0].quantity}
+                </Text>
               </View>
             </View>
-            <View style={{ display: 'flex', flexDirection: 'row', margin: 15, }}>
-              <View style={{ flex: 8 }}>
+            <View style={{display: 'flex', flexDirection: 'row', margin: 15}}>
+              <View style={{flex: 8}}>
                 <Text style={styles.Ingredients}>puff pastry</Text>
               </View>
-              <View style={{ flex: 4 }}>
+              <View style={{flex: 4}}>
                 <Text style={styles.Ingredients}>1 sheet</Text>
               </View>
             </View>
-            <View style={{ display: 'flex', flexDirection: 'row', margin: 15, }}>
-              <View style={{ flex: 8 }}>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'space-around',
+                margin: 15,
+              }}>
+              <View style={{flex: 8}}>
                 <Text style={styles.Ingredients}>puff pastry</Text>
               </View>
-              <View style={{ flex: 4 }}>
-                <Text style={styles.Ingredients}>1 sheet</Text>
+              <View style={{flex: 4}}>
+                <Text style={styles.Ingredients}>1 holaaa</Text>
               </View>
             </View>
           </View>
@@ -97,7 +101,7 @@ const modal = ({visible, show, hide}) => {
       </Modal>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -112,22 +116,22 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: 30,
     opacity: 1,
-    fontWeight: "100",
+    fontWeight: '100',
   },
   sectionName: {
     color: Colors.white,
     fontSize: 15,
   },
-  servingsRecipe:{
-    color:Colors.white
+  servingsRecipe: {
+    color: Colors.white,
   },
-  Ingredients:{
-    color: Colors.white, 
+  Ingredients: {
+    color: Colors.white,
     fontSize: 15,
     paddingBottom: 15,
     borderBottomWidth: 1.5,
     borderBottomColor: '#323232',
-  }, 
+  },
 });
 
 export default modal;
