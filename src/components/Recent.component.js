@@ -14,14 +14,14 @@ import RecentCard from './RecentCard.component';
 const Recent = () => {
   const isEmptyRecent = () => {
     return (
-      <View>
-        <Text>There isn't recent recipes</Text>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderStyle: 'solid', borderColor: 'red'}}>
+        <Text style={styles.title}>There isn't recent recipes</Text>
       </View>
     );
   };
 
   return (
-    <SafeAreaView style={{marginTop: 30}}>
+    <SafeAreaView style={[styles.containerRecipe,styles.containerRecent]}>
       <Text style={styles.divider}>RECENT</Text>
       <FlatList
         horizontal={true}
