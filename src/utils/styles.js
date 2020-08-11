@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'; 
-import {Colors} from './themes';
+import {Colors} from './Colors';
 
 export const styles = StyleSheet.create({
   //This styles are for he homeScreen
@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
   containerRecipe: {
     // height: 'auto',
     marginHorizontal: 5,
+    marginTop: 20,
     backgroundColor: Colors.backgroundScreen,
   },
   containerRecent: {
