@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import IconsEvilIcon from 'react-native-vector-icons/EvilIcons';
-import {Colors} from '../utils/themes';
+import {Colors} from '../utils/Colors';
 import {recipesRecent} from '../data/recipesRecent';
 
 const modal = ({visible, show, hide}) => {

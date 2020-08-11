@@ -11,7 +11,7 @@ import ModalRecipe from './ModalRecipe.component';
 import {recipesTrending} from '../data/recipesTrending';
 import RecipesCard from './RecipesCard.component';
 
-const listRecipe = () => {
+const trending = () => {
   return (
     <SafeAreaView style={styles.containerRecipe}>
       <Text style={styles.divider}>TRENDING</Text>
@@ -25,4 +25,4 @@ const listRecipe = () => {
   );
 };
 
-export default listRecipe;
+export default trending;
