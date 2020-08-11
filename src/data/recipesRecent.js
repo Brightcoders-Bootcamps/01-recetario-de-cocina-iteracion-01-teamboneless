@@ -1,7 +1,8 @@
 export var recipesRecent = [
   {
     name: 'Napolitan Pizza',
-    section: 'Recent',
+    trending: true,
+    recent: false,
     image: require('./../assets/pizza.jpg'),
     servings: '2 servings',
     ingredients: [
@@ -26,7 +27,8 @@ export var recipesRecent = [
 
   {
     name: 'Pesto Pasta',
-    section: 'Trending',
+    trending: true,
+    recent: true,
     image: require('./../assets/pesto-pasta.jpg'),
     servings: '1 serving',
     ingredients: [
@@ -55,7 +57,8 @@ export var recipesRecent = [
 
   {
     name: 'Cereal',
-    section: 'Recent',
+    trending: true,
+    recent: false,
     image: require('./../assets/cereal.jpg'),
     servings: '1 servings',
     ingredients: [
@@ -76,7 +79,8 @@ export var recipesRecent = [
 
   {
     name: 'Lemon Pie',
-    section: 'Trending',
+    trending: true,
+    recent: true,
     image: require('./../assets/lemon-pie.jpg'),
     servings: '8 pieces',
     ingredients: [
@@ -117,7 +121,8 @@ export var recipesRecent = [
 
   {
     name: 'Pancakes',
-    section: 'Recent',
+    trending: true,
+    recent: false,
     image: require('./../assets/pancakes.jpeg'),
     servings: '8 pieces',
     ingredients: [
@@ -141,7 +146,8 @@ export var recipesRecent = [
   },
   {
     name: 'Mexican Eggs',
-    section: 'Recent',
+    trending: true,
+    recent: true,
     image: require('./../assets/mexican-eggs.jpg'),
     servings: '4 servings',
     ingredients: [
@@ -169,7 +175,8 @@ export var recipesRecent = [
   },
   {
     name: 'Classic Sandwich',
-    section: 'Trending',
+    trending: true,
+    recent: false,
     image: require('./../assets/classic-sandwich.jpg'),
     servings: '1 serving',
     ingredients: [
@@ -202,7 +209,8 @@ export var recipesRecent = [
 
   {
     name: 'Salmon with Garlic',
-    section: 'Recent',
+    trending: true,
+    recent: true,
     image: require('./../assets/salmon-garlic.jpg'),
     servings: '1 serving',
     ingredients: [
