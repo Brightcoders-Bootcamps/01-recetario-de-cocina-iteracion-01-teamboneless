@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'; 
+import {StyleSheet} from 'react-native';
 import {Colors} from './Colors';
 
 export const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   containerRecent: {
     marginTop: 30,
   },
-  //Text's styles for the recipes  
+  //Text's styles for the recipes
   title: {
     fontSize: 20,
     color: Colors.white,
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     color: Colors.title,
     marginBottom: 15,
   },
-    
+
   whiteText: {
     justifyContent: 'flex-start',
     color: Colors.white,
@@ -49,13 +49,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 25,
   },
-    
+
   recipeImage: {
     // resizeMode: 'cover',
-    height: 110,
-    width: 120,
+    height: 120,
+    width: 125,
     borderRadius: 5,
-
   },
   areaInput: {
     width: '90%',
@@ -71,10 +70,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardMargin: {
-    flex: 1,
+    flex: 10,
     flexWrap: 'wrap',
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     marginBottom: 5,
-    // paddingHorizontal: 10,
-  }
+    // borderWidth: 2,
+    // borderStyle: 'solid',
+    // borderColor: 'red',
+  },
 });
