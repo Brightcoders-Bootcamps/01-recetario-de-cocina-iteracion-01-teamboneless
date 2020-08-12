@@ -1,10 +1,39 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Modal, FlatList} from 'react-native';
+import {SafeAreaView, View, Text, FlatList} from 'react-native';
 import {styles} from '../utils/styles';
-import ModalRecipe from './ModalRecipe.component';
 import RecipesCard from './RecipesCard.component';
 
-const trending = (props) => {
+const ListRecipe = (props) => {
+  const resizeContainer =
+    props.type == 'recent'
+      ? {
+          width: 'auto',
+          height: 'auto',
+          marginRight: 10,
+        }
+      : {};
+  const resizeImage =
+    props.type == 'recent'
+      ? {
+          width: 175,
+          height: 205,
+        }
+      : {};
+  const resizeText =
+    props.type == 'recent'
+      ? {
+          fontSize: 25,
+        }
+      : {};
+
+  const isEmpy = () => {
+    return (
+      <View>
+        <Text></Text>
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.containerRecipe}>
       <Text style={styles.divider}>{props.title}</Text>
@@ -13,21 +42,31 @@ const trending = (props) => {
         data={props.recipes}
         keyExtractor={(item) => item.name}
         renderItem={({item}) => (
-          <RecipesCard data={item} testStyle={stylesTest} />
+          <RecipesCard
+            data={item}
+            containerStyle={resizeContainer}
+            textStyle={resizeText}
+            imageStyle={resizeImage}
+          />
         )}
+        ListEmptyComponent={isEmpy}
       />
     </SafeAreaView>
   );
 };
 
-export default trending;
+export default ListRecipe;
 
 const stylesTest = {
   testing: {
-    height: 20,
-    width: 20,
+    height: 500,
+    width: 500,
     borderStyle: 'solid',
     borderWidth: 2,
     borderColor: 'red',
+  },
+  testImage: {
+    width: 120,
+    height: 125,
   },
 };
