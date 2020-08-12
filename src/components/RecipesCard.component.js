@@ -3,11 +3,16 @@ import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {styles} from '../utils/styles';
 
 const recipiesCard = (props) => {
+  const {
+    data: {image, name},
+    testStyle: {stylesTest},
+  } = props;
+
   return (
-    <View style={styles.cardMargin}>
+    <View style={{stylesTest}}>
       <TouchableOpacity style={{width: 135}}>
-        <Image style={styles.recipeImage} source={props.data.image} />
-        <Text style={styles.title}>{props.data.name}</Text>
+        <Image style={styles.recipeImage} source={image} />
+        <Text style={styles.title}>{name}</Text>
       </TouchableOpacity>
     </View>
   );

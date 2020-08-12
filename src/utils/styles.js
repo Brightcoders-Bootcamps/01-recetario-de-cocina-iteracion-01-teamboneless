@@ -72,7 +72,7 @@ export const styles = StyleSheet.create({
   cardMargin: {
     flex: 10,
     flexWrap: 'wrap',
-    marginHorizontal: 5,
+    marginHorizontal: 10,
     marginBottom: 5,
     // borderWidth: 2,
     // borderStyle: 'solid',
