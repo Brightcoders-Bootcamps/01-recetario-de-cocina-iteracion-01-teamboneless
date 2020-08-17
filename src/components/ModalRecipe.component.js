@@ -1,16 +1,15 @@
 import React from 'react';
 import {
-  Alert,
   Modal,
   StyleSheet,
   Text,
   ImageBackground,
   View,
-  ScrollView,
+  FlatList,
 } from 'react-native';
 import IconsEvilIcon from 'react-native-vector-icons/EvilIcons';
+import Ingredients from './Ingredients.component';
 import {Colors} from '../utils/Colors';
-import {recipes} from '../data/recipes';
 
 const modal = (props) => {
   return (
@@ -19,8 +18,10 @@ const modal = (props) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <ImageBackground
-              source={require('./../assets/pizza.jpg')}
-              style={{flex: 0.7}}
+              source={props.image}
+              style={{
+                flex: 0.7,
+              }}
               imageStyle={{opacity: 0.6}}>
               <View
                 style={{
@@ -33,7 +34,7 @@ const modal = (props) => {
                 }}>
                 <View style={{flex: 1, marginVertical: 10}}>
                   <IconsEvilIcon
-                    onPress={!props.visible}
+                    onPress={props.close}
                     name="close"
                     size={40}
                     color="white"
@@ -51,36 +52,15 @@ const modal = (props) => {
                 </View>
               </View>
               <View style={{top: '65%', left: '5%'}}>
-                <Text style={styles.sectionName}>TRENDING</Text>
-                <Text style={styles.recipeName}>Pizza</Text>
+                <Text style={styles.sectionName}>{props.section}</Text>
+                <Text style={styles.recipeName}>{props.name}</Text>
               </View>
             </ImageBackground>
-            <View style={{margin: 15}}>
-              <View style={{borderWidth: 2}}>
-                <Text style={styles.servingsRecipe}>
-                  Ingredients for XX servings
-                </Text>
-              </View>
-            </View>
-            <View style={{display: 'flex', flexDirection: 'row', margin: 15}}>
-              <View style={{flex: 8}}>
-                <Text style={styles.Ingredients}>
-                  {recipes[0].ingredients[0].name}
-                </Text>
-              </View>
-              <View style={{flex: 4}}>
-                <Text style={styles.Ingredients}>
-                  {recipes[0].ingredients[0].quantity}
-                </Text>
-              </View>
-            </View>
-            <View style={{display: 'flex', flexDirection: 'row', margin: 15}}>
-              <View style={{flex: 8}}>
-                <Text style={styles.Ingredients}>puff pastry</Text>
-              </View>
-              <View style={{flex: 4}}>
-                <Text style={styles.Ingredients}>1 sheet</Text>
-              </View>
+            <View style={styles.containerIngredients}>
+              <Text style={styles.servingsRecipe}>
+                Ingredients for {props.servings}
+              </Text>
+              <Ingredients />
             </View>
           </View>
         </View>
@@ -89,6 +69,13 @@ const modal = (props) => {
   );
 };
 
+/**
+ * <FlatList
+                data={props.recipes.ingredients}
+                keyExtractor={(item) => item.name}
+                renderItem={({item}) => <Ingredients data={item} />}
+              />
+ */
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
@@ -110,6 +97,10 @@ const styles = StyleSheet.create({
   },
   servingsRecipe: {
     color: Colors.white,
+  },
+  containerIngredients: {
+    flex: 0.5,
+    margin: 15,
   },
   Ingredients: {
     color: Colors.white,

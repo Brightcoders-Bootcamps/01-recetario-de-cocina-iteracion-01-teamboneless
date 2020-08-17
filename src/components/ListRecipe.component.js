@@ -28,8 +28,8 @@ const ListRecipe = (props) => {
 
   const isEmpy = () => {
     return (
-      <View>
-        <Text></Text>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{color: 'white'}}>There isn't {props.title}</Text>
       </View>
     );
   };
@@ -43,6 +43,7 @@ const ListRecipe = (props) => {
         keyExtractor={(item) => item.name}
         renderItem={({item}) => (
           <RecipesCard
+            selected={props.selected}
             data={item}
             containerStyle={resizeContainer}
             textStyle={resizeText}
